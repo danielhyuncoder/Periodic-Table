@@ -1,38 +1,205 @@
-.App {
-  text-align: center;
+.mBody {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.periodicTable{
+  width: 90%;
+  height: 80%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+.row {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height:10%;
+  margin-bottom:0;
+  justify-content: center;
+}
+.miniText{
+   font-size: 10px;
+}
+.miniSymbol{
+  font-size: small;
+}
+.miniNumber {
+  font-size:4px;
+}
+
+.element {
+  cursor: pointer;
+  width: 4%;
+  border:1px solid black;
+  height: 95%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color:white;
+  justify-content: left;
+}
+@keyframes hoverAnim{
+  from { width: 4%; height: 95%;}
+  to {width: 5%;
+    height: 110%; background:rgb(0, 0, 0);}
+}
+@keyframes notHoverAnim{
+  from {width: 5%;
+    height: 110%; background:rgb(0, 0, 0);}
+  to {width: 4%; height: 95%;}
+}
+.element:hover{
+  animation-name:hoverAnim;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+.element:not(:hover){
+  animation-name:notHoverAnim;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+.fakeElement{
+  width: 4%;
+  border:1px solid white;
+  height: 95%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: left;
+}
+.element>div{
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width:100%;
+  height: 80%;
+}
+
+.nonmetal {
+  background: rgb(100, 100, 207);
+}
+.alkali {
+  background: rgb(172, 44, 231);
+}
+.alkaline {
+  background: rgb(161, 9, 231);
+}
+.transition {
+  background: rgb(20, 205, 211);
+}
+.basic {
+  background: rgb(255, 131, 15);
+}
+.metalloid {
+  background: rgb(34, 184, 46);
+}
+.halogen {
+  background: rgb(184, 34, 67);
+}
+.noble {
+  background: rgb(182, 148, 0);
+}
+.lanthan {
+  background: rgb(255, 0, 149);
+}
+.actin {
+  background:rgb(1, 128, 64);
+}
+.info{
+  position:absolute;
+  width: 80%;
+  height: 80%;
+  background-color: #333333d8;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.infoBody{
+  width: 80%;
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  color:white;
+}
+.infoBody2 {
+  display: none;
+}
+.infoBody>button{
+  width: 5%;
+  height: 8%;
   color: white;
+  font-weight: bold;
+  border: none;
+  cursor:pointer;
+  background: rgb(240, 81, 81);
+}
+.miniTextSummary {
+  font-size:10px;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@media(max-width: 912px){
+  .infoBody>button{
+    width: 10%;
+  height: 8%;
   }
-  to {
-    transform: rotate(360deg);
+
+  .fakeElement {
+    width: 5.3%;
+  }
+  .element {
+    width: 5.3%;
+  }
+  .element:hover {
+   animation-name:none;
+   width: 5%;
+    height: 110%;
+  }
+  .element:not(:hover){
+    animation-name:none;
+  }
+}
+@media(max-width: 500px){
+  .infoBody {
+    display: none;
+    
+  }
+  .infoBody2{
+    display: inline;
+    color:white;
+    width: 80%;
+  height: 80%;
+  }
+  .infoBody2>button{
+    width: 15%;
+  height: 8%;
+  color: white;
+  font-weight: bold;
+  border: none;
+  cursor:pointer;
+  background: rgb(240, 81, 81);
+  }
+  .infoBody>button{
+    width: 10%;
+  height: 8%;
+  }
+
+  .fakeElement {
+    width: 5%;
+  }
+  .element {
+    width: 5%;
+  }
+  .miniText{
+    display: none;
   }
 }
